@@ -138,6 +138,17 @@ return {
         -- clangd = {},
         -- gopls = {},
         pyright = {},
+        -- ruff_lsp = {},
+        ruff = {
+          root_dir = require('lspconfig.util').find_git_ancestor,
+          single_file_support = true,
+          init_options = {
+            settings = {
+              args = { '--select=E,F,W,C90,UP,I,SIM,Q,TRY,N,ASYNC,A,FIX,R,LOG', '--line-length=88' },
+            },
+          },
+        },
+        jdtls = {},
         -- pylsp = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs

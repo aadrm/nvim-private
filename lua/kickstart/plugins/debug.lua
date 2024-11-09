@@ -90,5 +90,13 @@ return {
     -- Install golang specific config
     require('dap-go').setup()
     require('dap-python').setup '~/.virtualenvs/debugpy/Scripts/python.exe'
+
+    table.insert(dap.configurations.python, {
+      type = 'python',
+      request = 'launch',
+      name = 'Django',
+      program = '${workspaceFolder}/src/manage.py',
+      args = { 'runserver' },
+    })
   end,
 }
